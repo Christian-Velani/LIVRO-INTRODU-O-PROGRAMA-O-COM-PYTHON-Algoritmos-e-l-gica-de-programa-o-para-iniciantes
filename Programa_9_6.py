@@ -66,7 +66,8 @@ def valida_faixa_inteiro(pergunta, inicio, fim):
         except ValueError:
             print(f'Valor inválido, favor digitar entre {inicio} e {fim}')
 def menu():
-    print("""
+    print(f"""
+    Tamanho atual da agenda: {len(agenda)}
     1 - Novo
     2 - Altera
     3 - Apaga
