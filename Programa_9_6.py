@@ -13,9 +13,13 @@
 #Você pode usar uma variável para controlar quando a lista foi alterada (novo,
 #altera, apaga) e reinicializar esse valor quando ela for lida ou gravada.
 
+#Exercício 9.23 Altere o programa para ler a última agenda lida ou gravada ao inicializar.
+#Dica: utilize outro arquivo para armazenar o nome.
+
 # Programa 9.6 - Controle de uma agenda de telefones
 agenda = []
 status = 'Salvo'
+arquivo_ultimo = ''
 def pede_nome():
     return input('Nome: ')
 def pede_telefone():
@@ -73,6 +77,7 @@ def lista():
 def lê():
     global agenda
     global status
+    global arquivo_ultimo
     nome_arquivo = pede_nome_arquivo()
     with open(nome_arquivo, 'r') as arquivo:
         agenda = []
@@ -80,13 +85,16 @@ def lê():
             nome, telefone = l.strip().split('#')
             agenda.append([nome, telefone])
     status = 'Salvo'
+    arquivo_ultimo = nome_arquivo
 def grava():
     global status
+    global arquivo_ultimo
     nome_arquivo = pede_nome_arquivo()
     with open(nome_arquivo, 'w') as arquivo:
         for e in agenda:
             arquivo.write(f'{e[0]}#{e[1]}\n')
     status = 'Salvo'
+    arquivo_ultimo = nome_arquivo
 def valida_faixa_inteiro(pergunta, inicio, fim):
     while True:
         try:
@@ -115,8 +123,13 @@ def menu():
     """)
     return valida_faixa_inteiro('Escolha uma opção ', 0, 7)
 while True:
+    with open('Última.txt', 'r') as ultima:
+        ultima_agenda = ultima.read()
+    print(f'Última agenda vista: {ultima_agenda}')
     opção = menu()
     if opção == 0:
+        with open('Última.txt', 'w') as escrever:
+            escrever.write(arquivo_ultimo)
         break
     elif opção == 1:
         novo()
