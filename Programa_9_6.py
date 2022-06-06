@@ -41,8 +41,7 @@ def altera():
         print('Nome não encontrado.')
 def lista():
     print('\nAgenda\n\n------')
-    for i, e in enumerate(agenda):
-        print(i)
+    for e in agenda:
         mostra_dados(e[0], e[1])
     print('------\n')
 def lê():
@@ -66,20 +65,14 @@ def valida_faixa_inteiro(pergunta, inicio, fim):
                 return valor
         except ValueError:
             print(f'Valor inválido, favor digitar entre {inicio} e {fim}')
-def ordenar():
-    global agenda
-    agenda = sorted(agenda, key= lambda agenda: agenda[0])
 def menu():
-    print(f"""
-    Tamanho atual da agenda: {len(agenda)}
-
+    print("""
     1 - Novo
     2 - Altera
     3 - Apaga
     4 - Lista
     5 - Grava
     6 - Lê
-    7 - Ordenar Agenda    
     
     0 - Sai
     """)
@@ -100,6 +93,4 @@ while True:
         grava()
     elif opção == 6:
         lê()
-    elif opção == 7:
-        ordenar()
 
