@@ -24,7 +24,7 @@ def novo():
 def apaga():
     global agenda
     nome = pede_nome()
-    p = pesquisar(nome)
+    p = pesquisa(nome)
     if p is not None:
         del agenda[p]
     else:
