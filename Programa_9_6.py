@@ -1,6 +1,9 @@
 #Exercício 9.17 Altere o Programa 9.6 para exibir o tamanho da agenda no menu
 #principal.
 
+#Exercício 9.19 Altere a função lista para que exiba também a posição de cada
+#elemento.
+
 # Programa 9.6 - Controle de uma agenda de telefones
 agenda = []
 def pede_nome():
@@ -44,7 +47,8 @@ def altera():
         print('Nome não encontrado.')
 def lista():
     print('\nAgenda\n\n------')
-    for e in agenda:
+    for i, e in enumerate(agenda):
+        print(i)
         mostra_dados(e[0], e[1])
     print('------\n')
 def lê():
@@ -71,7 +75,7 @@ def valida_faixa_inteiro(pergunta, inicio, fim):
 def menu():
     print(f"""
     Tamanho atual da agenda: {len(agenda)}
-    
+
     1 - Novo
     2 - Altera
     3 - Apaga
