@@ -66,6 +66,9 @@ def valida_faixa_inteiro(pergunta, inicio, fim):
                 return valor
         except ValueError:
             print(f'Valor inválido, favor digitar entre {inicio} e {fim}')
+def ordenar():
+    global agenda
+    agenda = sorted(agenda, key= lambda agenda: agenda[0])
 def menu():
     print(f"""
     Tamanho atual da agenda: {len(agenda)}
@@ -76,6 +79,7 @@ def menu():
     4 - Lista
     5 - Grava
     6 - Lê
+    7 - Ordenar Agenda    
     
     0 - Sai
     """)
@@ -96,4 +100,6 @@ while True:
         grava()
     elif opção == 6:
         lê()
+    elif opção == 7:
+        ordenar()
 
