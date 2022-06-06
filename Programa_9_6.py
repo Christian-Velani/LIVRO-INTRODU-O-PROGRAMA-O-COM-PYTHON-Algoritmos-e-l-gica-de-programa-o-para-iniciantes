@@ -4,6 +4,8 @@
 #Exercício 9.19 Altere a função lista para que exiba também a posição de cada
 #elemento.
 
+#Exercício 9.20 Adicione a opção de ordenar a lista por nome no menu principal.
+
 # Programa 9.6 - Controle de uma agenda de telefones
 agenda = []
 def pede_nome():
@@ -72,6 +74,9 @@ def valida_faixa_inteiro(pergunta, inicio, fim):
                 return valor
         except ValueError:
             print(f'Valor inválido, favor digitar entre {inicio} e {fim}')
+def ordenar():
+    global agenda
+    agenda = sorted(agenda, key= lambda agenda: agenda[0])
 def menu():
     print(f"""
     Tamanho atual da agenda: {len(agenda)}
@@ -82,10 +87,11 @@ def menu():
     4 - Lista
     5 - Grava
     6 - Lê
+    7 - Ordenar Agenda
     
     0 - Sai
     """)
-    return valida_faixa_inteiro('Escolha uma opção ', 0, 6)
+    return valida_faixa_inteiro('Escolha uma opção ', 0, 7)
 while True:
     opção = menu()
     if opção == 0:
@@ -102,4 +108,7 @@ while True:
         grava()
     elif opção == 6:
         lê()
+    elif opção == 7:
+        ordenar()
+
 
