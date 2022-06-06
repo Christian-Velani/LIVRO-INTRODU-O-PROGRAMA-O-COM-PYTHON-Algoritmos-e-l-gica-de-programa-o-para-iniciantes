@@ -1,0 +1,4 @@
+Exercício 9.16 Explique como os campos nome e telefone são armazenado no
+arquivo de saída.
+
+Ao ser chamado a função de gravar, uma variável irá receber cada uma das listas que contém as informações das pessoas, as quais estão dentro da variável agenda, e irá escrever no arquivo o nome e o telefone da pessoa em uma mesma lista utilizado o # como separador
