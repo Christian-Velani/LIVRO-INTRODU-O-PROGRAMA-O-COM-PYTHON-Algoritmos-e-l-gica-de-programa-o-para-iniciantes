@@ -41,7 +41,8 @@ def altera():
         print('Nome não encontrado.')
 def lista():
     print('\nAgenda\n\n------')
-    for e in agenda:
+    for i, e in enumerate(agenda):
+        print(i)
         mostra_dados(e[0], e[1])
     print('------\n')
 def lê():
@@ -68,6 +69,7 @@ def valida_faixa_inteiro(pergunta, inicio, fim):
 def menu():
     print(f"""
     Tamanho atual da agenda: {len(agenda)}
+
     1 - Novo
     2 - Altera
     3 - Apaga
