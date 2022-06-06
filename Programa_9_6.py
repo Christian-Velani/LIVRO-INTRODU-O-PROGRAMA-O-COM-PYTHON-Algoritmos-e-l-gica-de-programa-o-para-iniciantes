@@ -6,6 +6,9 @@
 
 #Exercício 9.20 Adicione a opção de ordenar a lista por nome no menu principal.
 
+#Exercício 9.21 Nas funções de alterar e apaga , peça que o usuário confirme a alteração
+#e exclusão do nome antes de realizar a operação em si.
+
 # Programa 9.6 - Controle de uma agenda de telefones
 agenda = []
 def pede_nome():
@@ -31,7 +34,8 @@ def apaga():
     global agenda
     nome = pede_nome()
     p = pesquisa(nome)
-    if p is not None:
+    confirmar = input('Tem certeza que quer excluir o contato?(S/N)').upper()
+    if p is not None and confirmar == 'S':
         del agenda[p]
     else:
         print('Nome não encontrado.')
@@ -42,9 +46,11 @@ def altera():
         telefone = agenda[p][1]
         print('Encontrado:')
         mostra_dados(nome, telefone)
-        nome = pede_nome()
-        telefone = pede_telefone()
-        agenda[p] = [nome, telefone]
+        confirmar = input('Tem certeza que quer alterar o contato? (S/N)').upper()
+        if confirmar == 'S':
+            nome = pede_nome()
+            telefone = pede_telefone()
+            agenda[p] = [nome, telefone]
     else:
         print('Nome não encontrado.')
 def lista():
