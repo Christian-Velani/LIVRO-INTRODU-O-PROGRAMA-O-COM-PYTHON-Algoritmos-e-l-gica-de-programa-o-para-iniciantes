@@ -1,0 +1,10 @@
+Jogador: E
+Pontos: 5
+Jogador: A
+Pontos: 4
+Jogador: D
+Pontos: 3
+Jogador: B
+Pontos: 2
+Jogador: C
+Pontos: 1
