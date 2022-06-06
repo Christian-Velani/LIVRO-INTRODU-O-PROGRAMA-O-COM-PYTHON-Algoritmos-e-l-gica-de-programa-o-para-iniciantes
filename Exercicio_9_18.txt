@@ -1,0 +1,6 @@
+Exercício 9.18 O que acontece se nome ou telefone contiverem o caractere usado
+como separador em seus conteúdos? Explique o problema e proponha uma solução.
+
+Acontece um erro quando o arquivo é aberto para a leitura, pois ao utilizar o separador como parte do texto quando o programa tenta ler a linha e separar as informações acaba sendo entendido que existe mais de duas informações para ser lida na linha
+
+Para solucionar este problema, podemos modificar qual vai ser o separador para algo mais dificil de ser utilizado naturalmente na hora da escrita
