@@ -47,7 +47,16 @@ def novo():
     global status
     nome = pede_nome()
     telefone = pede_telefone()
-    agenda.append([nome, telefone])
+    for pessoa in agenda:
+        if pessoa[0].upper() == nome.upper():
+            confirmacao = input('A pessoa está na agenda!\n Tem certeza que quer adiciona-la mesmo assim(S/N): ')
+            if confirmacao == 'S':
+                agenda.append([nome, telefone])
+                break
+            else:
+                return None
+    else:
+        agenda.append([nome, telefone])
     status = 'Não salvo'
 def apaga():
     global agenda
