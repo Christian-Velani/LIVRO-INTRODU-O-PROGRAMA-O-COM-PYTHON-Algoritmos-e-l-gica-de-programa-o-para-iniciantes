@@ -18,6 +18,12 @@
 
 #Exercício 9.25 Altere as funções pede_nome e pede_telefone de forma a receberem um parâmetro opcional. Caso esse parâmetro seja passado, utilize-o como retorno caso a entrada de dados seja vazia.
 
+#Exercício 9.26 Altere o programa de forma a verificar a repetição de nomes. Gere
+#uma mensagem de erro caso duas entradas na agenda tenham o mesmo nome.
+
+#Exercício 9.27 Modifique o programa para também controlar a data de aniversário
+#e o email de cada pessoa.
+
 # Programa 9.6 - Controle de uma agenda de telefones
 agenda = []
 status = 'Salvo'
@@ -32,8 +38,12 @@ def pede_telefone(sem_valor='S/T'):
     if telefone == '':
         telefone = sem_valor
     return telefone
-def mostra_dados(nome, telefone):
-    print(f'Nome: {nome} Telefone: {telefone}')
+def pede_email():
+    return input('Email: ')
+def pede_data_aniversario():
+    return input('Data do Anivérsario (Dia/Mês): ')
+def mostra_dados(nome, telefone, email, data_aniversario):
+    print(f'Nome: {nome} Telefone: {telefone}\nEmail: {email} Data de Aniversário: {data_aniversario}')
 def pede_nome_arquivo():
     return input('Nome do arquivo: ')
 def pesquisa(nome):
@@ -47,16 +57,18 @@ def novo():
     global status
     nome = pede_nome()
     telefone = pede_telefone()
+    email = pede_email()
+    data_aniversario = pede_data_aniversario()
     for pessoa in agenda:
         if pessoa[0].upper() == nome.upper():
             confirmacao = input('A pessoa está na agenda!\n Tem certeza que quer adiciona-la mesmo assim(S/N): ')
             if confirmacao == 'S':
-                agenda.append([nome, telefone])
+                agenda.append([nome, telefone, email, data_aniversario])
                 break
             else:
                 return None
     else:
-        agenda.append([nome, telefone])
+        agenda.append([nome, telefone, email, data_aniversario])
     status = 'Não salvo'
 def apaga():
     global agenda
@@ -75,21 +87,24 @@ def altera():
     if p is not None:
         nome = agenda[p][0]
         telefone = agenda[p][1]
+        email = agenda[p][2]
+        data_aniversario = agenda[p][3]
         print('Encontrado:')
-        mostra_dados(nome, telefone)
+        mostra_dados(nome, telefone, email, data_aniversario)
         confirmar = input('Tem certeza que quer alterar o contato? (S/N)').upper()
         if confirmar == 'S':
             nome = pede_nome()
             telefone = pede_telefone()
-            agenda[p] = [nome, telefone]
+            email = pede_email()
+            data_aniversario = pede_data_aniversario()
+            agenda[p] = [nome, telefone, email, data_aniversario]
     else:
         print('Nome não encontrado.')
     status = 'Não salvo'
 def lista():
     print('\nAgenda\n\n------')
     for i, e in enumerate(agenda):
-        print(i)
-        mostra_dados(e[0], e[1])
+        print(f'{i} {mostra_dados(e[0], e[1], e[2], e[3])}')        
     print('------\n')
 def lê():
     global agenda
@@ -99,8 +114,8 @@ def lê():
     with open(nome_arquivo, 'r') as arquivo:
         agenda = []
         for l in arquivo.readlines():
-            nome, telefone = l.strip().split('#')
-            agenda.append([nome, telefone])
+            nome, telefone, email, data_aniversario = l.strip().split('#')
+            agenda.append([nome, telefone, email, data_aniversario])
     status = 'Salvo'
     arquivo_ultimo = nome_arquivo
 def grava():
@@ -109,7 +124,7 @@ def grava():
     nome_arquivo = pede_nome_arquivo()
     with open(nome_arquivo, 'w') as arquivo:
         for e in agenda:
-            arquivo.write(f'{e[0]}#{e[1]}\n')
+            arquivo.write(f'{e[0]}#{e[1]}#{e[2]}#{e[3]}\n')
     status = 'Salvo'
     arquivo_ultimo = nome_arquivo
 def valida_faixa_inteiro(pergunta, inicio, fim):
