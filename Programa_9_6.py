@@ -24,20 +24,60 @@
 #Exercício 9.27 Modifique o programa para também controlar a data de aniversário
 #e o email de cada pessoa.
 
+#Exercício 9.28 Modifique o programa de forma a poder registrar vários telefones
+#para a mesma pessoa. Permita também cadastrar o tipo de telefone: celular, fixo,
+#residência ou trabalho.
+
 # Programa 9.6 - Controle de uma agenda de telefones
 agenda = []
 status = 'Salvo'
 arquivo_ultimo = ''
+tipos_telefones = ['Celular', 'Fixo', 'Residencial', 'Trabalho']
 def pede_nome(sem_valor='S/N'):
     nome = input('Nome: ')
     if nome == '':
         nome = sem_valor
     return nome
 def pede_telefone(sem_valor='S/T'):
+    tipo = input(f'''Escolha o tipo de telefone: 
+    1. {tipos_telefones[0]}
+    2. {tipos_telefones[1]}
+    3. {tipos_telefones[2]}
+    4. {tipos_telefones[3]} ''')
     telefone = input('Telefone: ')
+    if tipo == '1':
+        tipo = tipos_telefones[0]
+    if tipo == '2':
+        tipo = tipos_telefones[1]
+    if tipo == '3':
+        tipo = tipos_telefones[2]
+    if tipo == '4':
+        tipo = tipos_telefones[3]
     if telefone == '':
         telefone = sem_valor
-    return telefone
+    novo_telefone = input('Deseja adicionar mais um telefone?(S/N): ')
+    telefones = []
+    telefones.append([tipo, telefone])
+    while novo_telefone.upper() == 'S':
+        tipo = input(f'''Escolha o tipo de telefone: 
+    1. {tipos_telefones[0]}
+    2. {tipos_telefones[1]}
+    3. {tipos_telefones[2]}
+    4. {tipos_telefones[3]} ''')
+        if tipo == '1':
+            tipo = tipos_telefones[0]
+        if tipo == '2':
+            tipo = tipos_telefones[1]
+        if tipo == '3':
+            tipo = tipos_telefones[2]
+        if tipo == '4':
+            tipo = tipos_telefones[3]
+        telefone = input('Telefone: ')
+        if telefone == '':
+            telefone = sem_valor
+        novo_telefone = input('Deseja adicionar mais um telefone?(S/N): ')
+        telefones.append([tipo, telefone])
+    return telefones
 def pede_email():
     return input('Email: ')
 def pede_data_aniversario():
@@ -104,7 +144,8 @@ def altera():
 def lista():
     print('\nAgenda\n\n------')
     for i, e in enumerate(agenda):
-        print(f'{i} {mostra_dados(e[0], e[1], e[2], e[3])}')        
+        print(i)
+        mostra_dados(e[0], e[1], e[2], e[3])   
     print('------\n')
 def lê():
     global agenda

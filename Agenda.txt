@@ -1,1 +1,3 @@
-Christian#56465465#christian@email.com#13/08
+christian#[['Celular', 'asdlfkjasldf']]#çasdfkjasd#asdlfçjs
+aslfdjasdf#[['Fixo', 'adslkfjça'], ['Fixo', 'adslkfjça']]#açkfj#asldfç
+çalfdsjka#[['Trabalho', 'alksfkasdfç'], ['Trabalho', 'alksfkasdfç'], ['Celular', 'sdlkfçjasdkfjçasd']]#alksdjfçdsa#açlsfjalsd
