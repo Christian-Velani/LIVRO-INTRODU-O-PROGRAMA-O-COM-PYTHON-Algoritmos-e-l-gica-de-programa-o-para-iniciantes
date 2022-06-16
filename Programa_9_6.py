@@ -16,14 +16,22 @@
 #Exercício 9.23 Altere o programa para ler a última agenda lida ou gravada ao inicializar.
 #Dica: utilize outro arquivo para armazenar o nome.
 
+#Exercício 9.25 Altere as funções pede_nome e pede_telefone de forma a receberem um parâmetro opcional. Caso esse parâmetro seja passado, utilize-o como retorno caso a entrada de dados seja vazia.
+
 # Programa 9.6 - Controle de uma agenda de telefones
 agenda = []
 status = 'Salvo'
 arquivo_ultimo = ''
-def pede_nome():
-    return input('Nome: ')
-def pede_telefone():
-    return input('Telefone: ')
+def pede_nome(sem_valor='S/N'):
+    nome = input('Nome: ')
+    if nome == '':
+        nome = sem_valor
+    return nome
+def pede_telefone(sem_valor='S/T'):
+    telefone = input('Telefone: ')
+    if telefone == '':
+        telefone = sem_valor
+    return telefone
 def mostra_dados(nome, telefone):
     print(f'Nome: {nome} Telefone: {telefone}')
 def pede_nome_arquivo():
