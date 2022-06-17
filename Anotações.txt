@@ -1,0 +1,3 @@
+os.getcwd retorna o diretorio atual
+os.mkdir cria um novo diretorio
+os.chdir leva para um diretorio especifico
