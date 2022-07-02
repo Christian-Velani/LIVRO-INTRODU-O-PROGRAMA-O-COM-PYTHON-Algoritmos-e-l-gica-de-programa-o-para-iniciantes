@@ -1,3 +1,14 @@
 os.getcwd retorna o diretorio atual
 os.mkdir cria um novo diretorio
 os.chdir leva para um diretorio especifico
+os.makedirs cria diretorios em cadeia
+os.rename renomeia um diretorio
+os.rmdir apaga um diretório
+os.remove apaga um arquivo
+os.listdir lista todos os diretorios e arquivos
+
+
+Funções do os.path
+isdir retorna verdadeiro se for um diretório
+isfile retorna verdadeiro se for um arquivo
+exists verifica a existencia
