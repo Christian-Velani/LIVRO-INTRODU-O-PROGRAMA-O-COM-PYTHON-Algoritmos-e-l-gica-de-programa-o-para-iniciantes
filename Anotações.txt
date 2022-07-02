@@ -12,3 +12,10 @@ Funções do os.path
 isdir retorna verdadeiro se for um diretório
 isfile retorna verdadeiro se for um arquivo
 exists verifica a existencia
+getsize retorna o tamanho do diretorio ou arquivo
+getctime retorna o dia e a hora da criação do arquivo/diretorio
+getmtime retorna o dia e a hora da modificação do arquivo/diretorio
+getatime retorna o dia e a hora do acesso ao arquivo/diretorio
+
+time.ctime converte em string as informações recebidas já que elas vem em segundos
+
