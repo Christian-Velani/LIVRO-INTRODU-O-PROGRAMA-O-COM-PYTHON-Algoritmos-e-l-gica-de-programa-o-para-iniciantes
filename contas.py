@@ -1,7 +1,9 @@
 # Programa 10.1 - Conta com registro de operações e extrato
+#Exercício 10.6 - Altere o progrma de forma que a mensagem saldo insuficiente
+#seja exibida caso haja tentativa de sacar mais dinheiro que o saldo disponível
 class Conta:
     def __init__(self, clientes, numero, saldo = 0):
-        self.saldo = saldo
+        self.saldo = 0
         self.clientes = clientes
         self.numero = numero
         self.operacoes = []
@@ -12,6 +14,8 @@ class Conta:
         if self.saldo >= valor:
             self.saldo -= valor
             self.operacoes.append(["SAQUE", valor])
+        else:
+            print('Saldo Insuficiente')
     def deposito(self, valor):
         self.saldo += valor
         self.operacoes.append(['DEPÓSITO', valor])
