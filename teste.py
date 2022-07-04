@@ -1,20 +1,13 @@
-class Televisao():
-    def __init__(self, min, max):
-        self.ligada = False
-        self.canal = 2
-        self.cmin = min
-        self.cmax = max
-    def muda_canal_para_baixo(self):
-        if self.canal - 1 >= self.cmin:
-            self.canal -= 1
-    def muda_canal_para_cima(self):
-        if self.canal + 1 <= self.cmax:
-            self.canal += 1
+from clientes import Cliente
+from contas import Conta
+joao = Cliente( "João da Silva ", "777-1234 ")
+Maria = Cliente( "Maria da Silva ", "555-4321")
 
-tv = Televisao(1, 99)
-for x in range(0, 120):
-    tv.muda_canal_para_cima()
-print(tv.canal)
-for x in range(0, 120):
-    tv.muda_canal_para_baixo()
-print(tv.canal)
+conta = Conta((joao, Maria), '11113101812101010', 1500)
+conta.resumo()
+conta.saque(1000)
+conta.resumo()
+conta.saque(50)
+conta.resumo()
+conta.deposito(200)
+conta.resumo()
