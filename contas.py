@@ -17,6 +17,6 @@ class Conta:
         self.operacoes.append(['DEPÓSITO', valor])
     def extrato(self):
         print(f'Extrato CC Nº {self.numero}\n')
-        for o in self.operações:
+        for o in self.operacoes:
             print(f'{o[0]:10s} {o[1]:10.2f}')
         print(f'\n  Saldo: {self.saldo:10.2f}\n')
