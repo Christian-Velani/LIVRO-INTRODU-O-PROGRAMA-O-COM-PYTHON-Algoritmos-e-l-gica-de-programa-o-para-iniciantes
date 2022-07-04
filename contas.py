@@ -1,5 +1,5 @@
 # Programa 10.1 - Conta com registro de operações e extrato
-#Exercício 10.6 - Altere o progrma de forma que a mensagem saldo insuficiente
+#Exercício 10.6 - Altere o programa de forma que a mensagem saldo insuficiente
 #seja exibida caso haja tentativa de sacar mais dinheiro que o saldo disponível
 class Conta:
     def __init__(self, clientes, numero, saldo = 0):
