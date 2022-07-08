@@ -8,6 +8,9 @@
 
 #Exercício 10.10 - Modifique as classes Conta e ContaEspecial para que a operação de
 #saque retorne verdadeiro se o saque for efetuado e falso, caso contrário.
+
+#Exercício 10.11 Altere a classe ContaEspecial de forma que seu extrato exiba o limite
+#e o total disponível para saque.
 class Conta:
     def __init__(self, clientes, numero, saldo = 0):
         self.saldo = 0
@@ -47,3 +50,10 @@ class ContaEspecial(Conta):
             return True
         else:
             return False
+    def extrato(self):
+        print(f'Extrato CC Nº {self.numero}\n')
+        for o in self.operacoes:
+            print(f'{o[0]:10s} {o[1]:10.2f}')
+        print(f'\n Saldo: {self.saldo:10.2f}\n')
+        print(f' Limite: {self.limite} ')
+        print(f'\n Saldo Disponivél para saque: {self.limite - abs(self.saldo)}')
