@@ -5,9 +5,9 @@
 
 #Exercicio 10.7 - Modifique o método resumo da classe Conta para exibir
 #o nome eo telefone de cada cliente
-from pydoc import cli
 
-
+#Exercício 10.10 - Modifique as classes Conta e ContaEspecial para que a operação de
+#saque retorne verdadeiro se o saque for efetuado e falso, caso contrário.
 class Conta:
     def __init__(self, clientes, numero, saldo = 0):
         self.saldo = 0
@@ -23,8 +23,10 @@ class Conta:
         if self.saldo >= valor:
             self.saldo -= valor
             self.operacoes.append(["SAQUE", valor])
+            return True
         else:
             print('Saldo Insuficiente')
+            return False
     def deposito(self, valor):
         self.saldo += valor
         self.operacoes.append(['DEPÓSITO', valor])
@@ -42,3 +44,6 @@ class ContaEspecial(Conta):
         if self.saldo + self.limite >= valor:
             self.saldo -= valor
             self.operacoes.append(['SAQUE', valor])
+            return True
+        else:
+            return False
