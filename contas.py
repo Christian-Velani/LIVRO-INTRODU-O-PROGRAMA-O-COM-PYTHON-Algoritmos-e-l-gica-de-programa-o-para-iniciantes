@@ -15,7 +15,7 @@ class Conta:
     def resumo(self):
         for i in self.clientes:
             print(f'Nome: {i.nome} Telefone: {i.telefone}') #Este código não funciona para contas com apenas 1 cliente
-        print(f"CC Número: {self.numero} Saldo: {self.saldo: 10.2f}")
+        print(f"CC Número: {self.numero} Saldo: {self.saldo: 10.2f}\n")
     def saque(self, valor):
         if self.saldo >= valor:
             self.saldo -= valor

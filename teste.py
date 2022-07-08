@@ -1,10 +1,15 @@
+#Exercício 10.8 Crie uma nova conta, agora tendo João e José como clientes e saldo
+#igual a 500.
+
 from clientes import Cliente
 from contas import Conta
 Joao = Cliente( "João da Silva ", "777-1234 ")
 Maria = Cliente( "Maria da Silva ", "555-4321")
+Jose = Cliente("José da Silva ", "444-9876")
 
 conta1 = Conta((Joao), 1, 1000)
 conta2 = Conta([Maria, Joao], 2, 500)
+conta3 = Conta([Joao, Jose], 3, 500)
 conta1.saque(50)
 conta2.deposito(300)
 conta1.saque(190)
@@ -14,3 +19,4 @@ conta1.extrato()
 conta2.extrato()
 conta1.saque(1500)
 conta2.resumo()
+conta3.resumo()
