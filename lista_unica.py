@@ -29,6 +29,3 @@ class ListaÚnica:
             raise TypeError("Tipo inválido")
     def ordena(self, chave = None):
         self.list.sort(key=chave)
-
-
-#Parei na página 234
