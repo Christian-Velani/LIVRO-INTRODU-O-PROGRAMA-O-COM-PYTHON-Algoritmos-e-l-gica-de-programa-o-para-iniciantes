@@ -1,3 +1,6 @@
+from functools import total_ordering
+
+@total_ordering
 class Nome:
     def __init__(self, nome):
         if nome is None or not nome.strip():
@@ -14,3 +17,6 @@ class Nome:
     def __lt__(self, outro):
         print('__lt__ Chamado')
         return self.nome < outro.nome
+    @staticmethod
+    def CriaChave(nome):
+        return nome.strip().lower()
