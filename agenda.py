@@ -47,7 +47,7 @@ class DadoAgenda:
     @property
     def nome(self):
         return self.__nome
-        
+
     @nome.setter
     def nome(self, valor):
         if not isinstance(type(valor), Nome):
@@ -60,3 +60,22 @@ class DadoAgenda:
             return None
         else:
             return self.telefones[posição]
+
+class TiposTelefone(lista_unica.ListaÚnica):
+    def __init__(self):
+        super().__init__(TipoTelefone)
+
+class Agenda(lista_unica.ListaÚnica):
+    def __init__(self):
+        super().__init__(DadoAgenda)
+        self.tiposTelefone = TiposTelefone()
+    def adicionaTipo(self, nome):
+        if isinstance(type(none), str):
+            nome = Nome(nome)
+        for dados in self.lista:
+            if dados.nome == nome:
+                return dados
+            else:
+                return None
+    def ordena(self):
+        super().ordena(lambda dado: str(dado.nome))
